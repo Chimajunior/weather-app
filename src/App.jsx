@@ -1,5 +1,7 @@
 import './App.css'
-import {useState} from "react"
+import React, {useState} from "react"
+import SearchBar from "./components/SearchBar";
+
 
 function App() {
   const [city, setCity] = useState("");
@@ -12,14 +14,14 @@ function App() {
   return (
     <div className= "weather-app">
       <h1>Weather Guide</h1>
-      {/* Your Weather App UI goes here */}
+
+      {/* passing props to SearchBar*/}
+      <SearchBar 
+        city={city} 
+        onCityChange={setCity} 
+        onSearch={handleSearch} />
       <p>Search for a city to get its weather details.</p>
-      <input 
-        type="text"
-        placeholder='Enter a city'
-        value={city}
-        onChange={handleSearch}
-       />
+      
        <p>Searching weather for: {city}</p>
     </div>
   )
